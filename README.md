@@ -22,11 +22,11 @@ connection is encrypted end-to-end by Tor.
 Example
 =======
 
-Example session. The xfce4 desktop loads right after scanning the QR code in Tor Browser:
-
-![Example mobile screenshot, showing firefox and neofetch](doc/example-mobile.png)
-
 Terminal output from `run.sh`, with session logs on the left and the QR code on the right:
 
 ![Example output from the terminal running the container](doc/example-terminal.png)
+
+Example session. The xfce4 desktop loads right after scanning the QR code in Tor Browser:
+
+![Example mobile screenshot, showing firefox and neofetch](doc/example-mobile.png)
 
