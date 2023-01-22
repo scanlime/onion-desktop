@@ -1,0 +1,7 @@
+f=~/.hs/hostname
+while [ ! -f $f ]; do
+  sleep 1
+done
+url=http://$(<$f)/
+qr $url
+echo $url
