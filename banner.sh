@@ -2,7 +2,7 @@
 while true; do
   # Loop allows regenerating the VNC password any time
 
-  vncpass=`openssl rand -base64 6`
+  vncpass=`openssl rand -base64 6 | tr +/ _-`
   mkdir -p ~/.vnc
   chmod 700 ~/.vnc
   echo $vncpass | vncpasswd -f > ~/.vnc/passwd
