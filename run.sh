@@ -1,4 +1,5 @@
 #!/bin/sh
 set -ve
-docker build . -t scanlime/onion-desktop
-docker run -it --rm scanlime/onion-desktop
+tag=onion-desktop
+docker build . -t $tag
+docker run -it --rm $tag
