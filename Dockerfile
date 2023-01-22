@@ -17,8 +17,14 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 
 # Other user apps
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-	openssh-client vim man-db less \
-	neofetch nmap cmatrix vlc
+	konsole cool-retro-term \
+	openssh-client \
+	nano vim emacs \
+	man-db less \
+	iputils-ping iproute2 nmap \
+	irssi \
+	neofetch figlet cmatrix \
+	vlc ffmpeg
 
 RUN useradd -m user && chsh -s /bin/bash user
 WORKDIR /home/user
