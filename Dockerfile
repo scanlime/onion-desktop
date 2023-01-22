@@ -9,11 +9,14 @@ RUN apt-get update && \
 RUN useradd -m user
 WORKDIR /home/user
 
-COPY torrc .torrc
+COPY index.html /usr/share/novnc/index.html
+COPY torrc /etc/tor/torrc
+
 COPY xserverrc .xserverrc
 COPY xinitrc.sh .xinitrc
 COPY startx.sh .startx
-RUN chown user:user -R . && chmod 750 .startx .xinitrc
+COPY banner.sh .banner
+RUN chown user:user -R . && chmod 750 .startx .xinitrc .banner
 
 USER user
-CMD /home/user/.startx
+CMD tmux -u new-session /home/user/.startx \; split-window -h /home/user/.banner \; select-pane -t 0
