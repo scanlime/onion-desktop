@@ -23,13 +23,13 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 RUN useradd -m user && chsh -s /bin/bash user
 WORKDIR /home/user
 
-COPY index.html /usr/share/novnc/index.html
-COPY torrc /etc/tor/torrc
+COPY src/index.html /usr/share/novnc/index.html
+COPY src/torrc /etc/tor/torrc
 
-COPY xserverrc.sh .xserverrc
-COPY xinitrc.sh .xinitrc
-COPY startx.sh .startx
-COPY banner.sh .banner
+COPY src/xserverrc.sh .xserverrc
+COPY src/xinitrc.sh .xinitrc
+COPY src/startx.sh .startx
+COPY src/banner.sh .banner
 RUN chown user:user -R . && chmod 750 .startx .banner
 
 USER user
