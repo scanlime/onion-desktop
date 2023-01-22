@@ -5,11 +5,11 @@ RUN apt-get update && \
 	tigervnc-standalone-server \
 	novnc tor xinit xfce4
 
-COPY torrc /etc/tor/torrc
 RUN useradd -m user
 USER user
 WORKDIR /home/user
+COPY torrc .torrc
 COPY xserverrc .xserverrc
 COPY xsession .xsession
-COPY banner .banner
-CMD tor -f /etc/tor/torrc& xinit& bash ~/.banner; wait
+COPY startx .startx
+CMD /bin/bash ~/.startx
