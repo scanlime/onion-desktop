@@ -3,13 +3,17 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y
 
 # Packages needed by the included scripts
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-	tmux python3-qrcode \
+	bash tmux python3-qrcode \
 	tigervnc-standalone-server \
-	novnc tor xinit dbus-x11
+	tor novnc xinit
 
-# Desktop environment and browser
+# Desktop environment
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-	xfce4 x11-utils firefox
+	xfce4 dbus-x11 x11-utils
+
+# Browser
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+	firefox
 
 # Other user apps
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
