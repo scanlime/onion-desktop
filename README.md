@@ -16,6 +16,17 @@ be used during setup. There is no login password or sudo access set up.
 You can add more packages to the Dockerfile easily enough.
 
 Anyone who has the onion URL and VNC password (or cares to try brute
-forcing the password) can use your container, but the connection is
-encrypted end-to-end by Tor.
+forcing the password) can use or try to escape your container, but the
+connection is encrypted end-to-end by Tor.
+
+Example
+=======
+
+Example session. The xfce4 desktop loads right after scanning the QR code in Tor Browser:
+
+![Example mobile screenshot, showing firefox and neofetch](doc/example-mobile.png)
+
+Terminal output from `run.sh`, with session logs on the left and the QR code on the right:
+
+![Example output from the terminal running the container](doc/example-terminal.png)
 
