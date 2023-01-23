@@ -17,14 +17,24 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 
 # Other user apps
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-	konsole cool-retro-term \
+	cool-retro-term konsole \
+	python-is-python3 \
 	openssh-client \
 	nano vim emacs \
 	man-db less \
 	iputils-ping iproute2 nmap \
 	irssi \
 	neofetch figlet cmatrix \
+	dosbox \
 	vlc ffmpeg
+
+RUN update-alternatives --set x-terminal-emulator /usr/bin/konsole
+
+# Contrib repository
+RUN sed -i 's/^\(Components: main\)/\1 contrib/' \
+	/etc/apt/sources.list.d/debian.sources && apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+	torbrowser-launcher
 
 RUN useradd -m user && chsh -s /bin/bash user
 WORKDIR /home/user
